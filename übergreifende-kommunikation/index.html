@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <script>
+      // Einem Kanal beitreten
+      const channel = new BroadcastChannel("mfe_channel");
+
+      //Eine Nachricht empfangen
+      channel.onmessage = (evt) => {
+        console.log(evt.msg);
+      };
+
+      // Eine Nachricht senden
+      channel.postMessage({ msg: "Hello World!" });
+      
+      // Verbindung zu einem Kanal trennen
+      channel.close();
+    </script>
+  </head>
+  <body>
+    <h1>BCA Test</h1>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<script>
+  class CheckoutBuy extends HTMLElement {
+    ...
+    render() {
+      ...
+      this.innerHTML = `...`;
+      this.querySelector("button").addEventListener("click", () => {
+        ...
+        const event = new CustomEvent("checkout:item_added");
+        this.dispatchEvent(event);
+      });
+    }
+  }
+</script>
+<script>
+  const buyButton = document.querySelector("checkout-buy");
+  const product = document.querySelector(".decide_product");
+  buyButton.addEventListener("checkout:item_added", (e) => {
+    product.classList.add("decide_product--confirm");
+  });
+</script>

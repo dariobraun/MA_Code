@@ -1,0 +1,13 @@
+{
+  "name": "podium",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:layout": "node index.js",
+    "start:podlet": "node podlet.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

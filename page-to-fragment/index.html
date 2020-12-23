@@ -1,0 +1,19 @@
+<script>
+  const option = document.querySelector(".decide_editions input");
+  const image = document.querySelector(".decide_image");
+  const buyButton = document.querySelector("checkout-buy");
+  option.addEventListener("change", (e) => {
+    const edition = e.target.checked ? "platinum" : "standard";
+    buyButton.setAttribute("edition", edition);
+    image.src = image.src.replace(/(standard|platinum)/, edition);
+  });
+</script>
+...
+<img class="decide_image" src="https://mi-fr.org/img/fendt_standard.svg" />
+...
+<label class="decide_editions">
+  <input type="checkbox" name="edition" value="platinum" />
+  <span>Platinum Edition</span>
+</label>
+<checkout-buy sku="fendt" edition="standard"></checkout-buy>
+...

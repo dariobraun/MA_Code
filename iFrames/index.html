@@ -1,0 +1,17 @@
+<html>
+  <body>
+    <h1>iFrame Example!</h1>
+
+    <iframe id="micro-frontend-container"></iframe>
+
+    <script type="text/javascript">
+      const microFrontendsByRoute = {
+        '/': 'http://localhost:8081/fragments/index.html',
+        '/mf1': 'http://localhost:8081/fragments/mf1.html',
+      };
+      const iframe = document.getElementById('micro-frontend-container');
+      iframe.setAttribute('name', 'Hello');
+      iframe.src = microFrontendsByRoute[window.location.pathname];
+    </script>
+  </body>
+</html>

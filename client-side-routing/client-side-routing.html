@@ -1,0 +1,34 @@
+<script>
+  [...]
+  const appContent = document.querySelector("#app-content");
+  const routes = {
+    "/": "inspire-home",
+    "/product/porsche": "decide-product-porsche",
+    "/product/fendt": "decide-product-fendt",
+    "/product/eicher": "decide-product-eicher",
+    "/checkout/cart": "checkout-cart",
+    "/checkout/pay": "checkout-pay",
+    "/checkout/success": "checkout-success",
+  };
+
+  function findComponentName(pathname) {
+    return routes[pathname] || "not found";
+  }
+
+  function updatePageComponent(location) {
+    appContent.innerHTML = findComponentName(location.pathname);
+  }
+
+  const appHistory = window.History.createBrowserHistory();
+  appHistory.listen(updatePageComponent);
+
+  updatePageComponent(window.location);
+  document.addEventListener("click", (e) => {
+    if (e.target.nodeName === "A") {
+      const href = e.target.getAttribute("href");
+      appHistory.push(href);
+      e.preventDefault();
+    }
+  });
+  [...]
+</script>
